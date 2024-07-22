@@ -89,10 +89,10 @@ When("user chooses the session with busy place", async function () {
 When("user chooses busy standart place", async function () {
   return await clickElement(
     this.page,
-    "section > div.buying-scheme > div.buying-scheme__wrapper > div:nth-child(6) > span:nth-child(3)"
+    "section > div.buying-scheme > div.buying-scheme__wrapper > div:nth-child(10) > span.buying-scheme__chair.buying-scheme__chair_standart.buying-scheme__chair_taken"
   );
 });
 
 Then("user sees that the acceptin-button to be disabled", async function () {
-  return await clickElement(this.page, "button").toBeDisabled();
+  return await clickElement(this.page, "button").toBeDisabled;
 });

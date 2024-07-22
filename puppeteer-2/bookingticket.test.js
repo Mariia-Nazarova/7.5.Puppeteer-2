@@ -49,21 +49,16 @@ describe("qamid.tmweb.ru", () => {
     await expect(actual).toContain("Вы выбрали билеты:");
   });
 
-  test.only("Unsuccessful booking busy standard place", async () => {
+  test("Unsuccessful booking busy standard place", async () => {
     await clickElement(
       page,
       "section:nth-child(3) > div.movie-seances__hall > ul > li > a"
     );
     await clickElement(
       page,
-      "section > div.buying-scheme > div.buying-scheme__wrapper > div:nth-child(6) > span:nth-child(3)"
+      "section > div.buying-scheme > div.buying-scheme__wrapper > div:nth-child(10) > span.buying-scheme__chair.buying-scheme__chair_standart.buying-scheme__chair_taken"
     );
-    await page.getByRole("button", { name: "Забронировать" }).click;
-    await expect(
-      page.getByRole("button", { name: "Забронировать" })
-    ).toBeDisabled();
+    await clickElement(page, "button");
+    await expect(clickElement(page, "button").toBeDisabled);
   });
 });
-
-//const actual = await clickElement(page, "acceptin-button");
-//expect(actual).toHaveAttribute("disabled", "true");
