@@ -3,7 +3,9 @@ module.exports = {
     try {
       await page.waitForSelector(selector);
       await page.click(selector);
-    } catch (error) {}
+    } catch (error) {
+      throw new Error(`Selector is not clickable: ${selector}`);
+    }
   },
 
   getText: async function (page, selector) {

@@ -44,9 +44,7 @@ After(async function () {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 Given("user is located on {string} page", async function (string) {
-  return await this.page.goto(
-    `https://qamid.tmweb.ru/client/index.php${string}`
-  );
+  return await this.page.goto(`https://qamid.tmweb.ru/client/index.php`);
 });
 
 When("user chooses the movie and the time of the session", async function () {
@@ -55,6 +53,7 @@ When("user chooses the movie and the time of the session", async function () {
     "section:nth-child(2) > div:nth-child(3) > ul > li:nth-child(2)"
   );
 });
+
 When("user chooses standart place", async function () {
   return await clickElement(
     this.page,
@@ -74,9 +73,7 @@ When("user click on acceptin-button", async function () {
 });
 
 Then("user sees {string} page", async function (string) {
-  return await this.page.goto(
-    `https://qamid.tmweb.ru/client/payment.php${string}`
-  );
+  return await this.page.goto(`https://qamid.tmweb.ru/client/payment.php`);
 });
 
 When("user chooses the session with busy place", async function () {
